@@ -1,0 +1,314 @@
+<!-- Sales preview built by Rankly Design, not the business's live website. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Lane Animal Hospital, Chelsea, MI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --base: #faf7f1;
+    --ink: #26312a;
+    --accent: #b07a3f;
+    --ink-soft: #666c66;
+    --hair: rgba(38,49,42,0.16);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+         background: var(--base); color: var(--ink-soft); line-height: 1.65; overflow-x: hidden; }
+  a { text-decoration: none; }
+  .serif { font-family: 'Playfair Display', Georgia, serif; }
+  .wrap { max-width: 76rem; margin: 0 auto; padding: 0 2rem; position: relative; }
+  .kicker { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent); }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes slowzoom { from { transform: scale(1); } to { transform: scale(1.06); } }
+  .rise { opacity: 0; animation: rise 0.9s cubic-bezier(0.22,0.8,0.32,1) forwards; }
+
+  .previewbar { background: var(--ink); color: var(--base); position: relative; z-index: 40; }
+  .previewbar .wrap { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; align-items: center;
+                      justify-content: space-between; padding-top: 0.65rem; padding-bottom: 0.65rem; }
+  .previewbar p { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; }
+  .previewbar p strong { color: #fff; font-weight: 700; }
+  .btn-book-sm { display: inline-block; border: 1px solid var(--accent); color: #fff; background: var(--accent);
+                 font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+                 padding: 0.45rem 1.1rem; transition: all 0.25s ease; }
+  .btn-book-sm:hover { background: transparent; color: var(--accent); }
+
+  .masthead { padding: 2.2rem 0 0.5rem; }
+  .masthead .wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; }
+  .wordmark { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; color: var(--ink);
+              font-size: clamp(2.2rem, 4.6vw, 3.4rem); line-height: 0.95; letter-spacing: -0.01em; }
+  .wordmark em { font-style: italic; font-weight: 500; color: var(--accent); }
+  .wordmark-sub { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.42em; text-transform: uppercase;
+                  color: var(--ink); margin-top: 0.45rem; }
+  .mast-tel { text-align: right; }
+  .mast-tel .lbl { font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink-soft); }
+  .mast-tel a { font-family: 'Playfair Display', Georgia, serif; font-size: 1.55rem; font-weight: 700;
+                color: var(--ink); border-bottom: 2px solid var(--accent); transition: color 0.25s ease; }
+  .mast-tel a:hover { color: var(--accent); }
+
+  .hero { position: relative; padding: 3.2rem 0 7.5rem; }
+  .hero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 0; align-items: start; }
+  .hero-copy { position: relative; z-index: 3; padding-top: 1.5rem; }
+  .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; color: var(--ink);
+             font-size: clamp(2.9rem, 6.8vw, 5.8rem); line-height: 1.02; letter-spacing: -0.015em;
+             width: 118%; margin-top: 1.1rem; }
+  .hero h1 em { font-style: italic; font-weight: 500; color: var(--accent); }
+  .hero .sub { margin: 1.6rem 0 2.1rem; font-size: 1.14rem; max-width: 27rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+  .btn-call { display: inline-block; background: var(--ink); color: var(--base); font-weight: 700;
+              letter-spacing: 0.06em; padding: 1rem 2rem; transition: all 0.25s ease; }
+  .btn-call:hover { background: var(--accent); color: #fff; }
+  .btn-visit { display: inline-block; color: var(--ink); font-weight: 700; letter-spacing: 0.06em;
+               padding: 1rem 0.4rem; border-bottom: 2px solid var(--ink); transition: all 0.25s ease; }
+  .btn-visit:hover { color: var(--accent); border-color: var(--accent); }
+  .hero-media { position: relative; z-index: 1; margin-top: 5.5rem; }
+  .hero-media .frame { position: relative; overflow: hidden; background: linear-gradient(150deg, #26312a, var(--accent)); }
+  .hero-media .frame::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(255,255,255,0.28);
+                              transform: translate(14px, 14px); pointer-events: none; }
+  .hero-media img.main { width: 100%; height: 100%; min-height: 30rem; object-fit: cover; display: block;
+                         animation: slowzoom 14s ease-out forwards; }
+  .hero-media img.small { position: absolute; left: -5.2rem; bottom: -3.4rem; width: 46%; aspect-ratio: 4/3;
+                          object-fit: cover; border: 0.55rem solid var(--base); z-index: 4;
+                          box-shadow: 0 24px 50px rgba(0,0,0,0.28); }
+  .hero-media.imgfail img { display: none; }
+  .hero-media .ph { min-height: 30rem; }
+  .side-label { position: absolute; right: -0.4rem; top: 9rem; writing-mode: vertical-rl;
+                font-size: 0.74rem; font-weight: 700; letter-spacing: 0.5em; text-transform: uppercase;
+                color: var(--ink-soft); }
+
+  .stat-row { border-top: 1px solid var(--hair); margin-top: 1rem; padding: 2.4rem 0 0.5rem;
+              display: grid; grid-template-columns: auto 1fr; gap: 0 2.6rem; align-items: center; }
+  .stat-num { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; color: var(--ink);
+              font-size: clamp(4rem, 8vw, 6.4rem); line-height: 0.9; }
+  .stat-num i { font-style: italic; font-weight: 500; color: var(--accent); font-size: 0.45em; vertical-align: 1.1em; }
+  .stat-txt .stars { color: var(--accent); font-size: 1.3rem; letter-spacing: 0.22em; }
+  .stat-txt p { font-size: 1.05rem; color: var(--ink); font-weight: 600; margin-top: 0.3rem; }
+  .stat-txt span { font-size: 0.95rem; color: var(--ink-soft); font-weight: 400; }
+  .note-row { border-top: 1px solid var(--hair); margin-top: 1rem; padding: 2.2rem 0 0.5rem; }
+  .note-row p { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.5rem, 3vw, 2.1rem);
+                color: var(--ink); font-weight: 700; line-height: 1.25; max-width: 44rem; }
+  .note-row p em { font-style: italic; font-weight: 500; color: var(--accent); }
+
+  section.block { padding: 6rem 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 1.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .sec-head h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; color: var(--ink);
+                 font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.05; }
+  .sec-head h2 em { font-style: italic; font-weight: 500; color: var(--accent); }
+  .sec-lead { font-size: 1.06rem; max-width: 34rem; margin-bottom: 2.4rem; }
+  .svc { list-style: none; }
+  .svc li { display: grid; grid-template-columns: 5.5rem 1fr 1.2fr; gap: 1.5rem; align-items: baseline;
+            padding: 2.1rem 0; border-top: 1px solid var(--hair); transition: padding 0.3s ease; }
+  .svc li:last-child { border-bottom: 1px solid var(--hair); }
+  .svc li:hover { padding-left: 0.8rem; }
+  .svc .no { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 500;
+             color: var(--accent); font-size: 1.5rem; }
+  .svc .nm { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: var(--ink);
+             font-size: clamp(1.6rem, 2.8vw, 2.3rem); line-height: 1.1; }
+  .svc .ds { font-size: 1rem; max-width: 22rem; justify-self: end; }
+  .svc li:nth-child(odd) { padding-right: 4rem; }
+  .svc li:nth-child(even) { padding-left: 4rem; }
+  .svc li:nth-child(even):hover { padding-left: 4.8rem; }
+
+  .proof { background: var(--ink); color: var(--base); padding: 6rem 0; position: relative; overflow: hidden; }
+  .proof .giant { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; line-height: 0.85;
+                   font-size: clamp(7rem, 20vw, 17rem); color: transparent;
+                   -webkit-text-stroke: 1px rgba(38,49,42,0.14); position: absolute; right: -1rem; top: 0.5rem;
+                   pointer-events: none; user-select: none; }
+  .proof .stars { color: var(--accent); font-size: 1.8rem; letter-spacing: 0.3em; position: relative; }
+  .proof .big { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: var(--base);
+                font-size: clamp(2.2rem, 4.6vw, 3.6rem); line-height: 1.12; max-width: 42rem; margin-top: 1rem; position: relative; }
+  .proof .big em { font-style: italic; font-weight: 500; color: var(--accent); }
+  .proof p { margin-top: 1rem; max-width: 30rem; color: rgba(38,49,42,0.78); position: relative; }
+
+  .contact-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 3rem; align-items: end; }
+  .contact .addr { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: var(--ink);
+                   font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.2; margin-top: 1.2rem; }
+  .contact .addr em { font-style: italic; font-weight: 500; color: var(--accent); }
+  .contact .side { border-left: 3px solid var(--accent); padding-left: 1.8rem; }
+  .contact .side p { margin-bottom: 1.2rem; }
+
+  .offer { padding: 6rem 0 7rem; }
+  .offer-frame { border: 1px solid var(--ink); padding: clamp(2rem, 5vw, 4rem); position: relative;
+                 background: rgba(255,255,255,0.35); }
+  .offer-frame::before { content: ""; position: absolute; inset: 0; border: 1px solid var(--accent);
+                         transform: translate(10px, 10px); pointer-events: none; }
+  .offer .badge { display: inline-block; background: var(--accent); color: #fff; font-weight: 700;
+                  font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase;
+                  padding: 0.45rem 1.1rem; margin-bottom: 1.6rem; position: relative; }
+  .offer h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; color: var(--ink);
+              font-size: clamp(2.3rem, 4.6vw, 3.8rem); line-height: 1.08; margin-bottom: 1rem; position: relative; }
+  .offer h2 em { font-style: italic; font-weight: 500; color: var(--accent); }
+  .offer .intro { max-width: 44rem; position: relative; }
+  .offer s { color: rgba(38,49,42,0.45); }
+  .offer .now { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; color: var(--accent); }
+  .offer .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.6rem; margin-top: 2.4rem; position: relative; }
+  .offer .price .lbl { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); }
+  .offer .price { margin-bottom: 1.4rem; color: var(--ink); }
+  .offer .price .now { font-size: 2.4rem; }
+  .offer .fine { font-size: 0.95rem; max-width: 24rem; }
+  .offer ul { list-style: none; }
+  .offer ul li { padding: 0.55rem 0 0.55rem 1.7rem; position: relative; color: var(--ink); font-weight: 500; }
+  .offer ul li::before { content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .offer .cta-row { margin-top: 2.6rem; display: flex; flex-wrap: wrap; gap: 1rem 1.4rem; align-items: center; position: relative; }
+  .btn-book { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; letter-spacing: 0.06em;
+              padding: 1rem 2.2rem; transition: all 0.25s ease; }
+  .btn-book:hover { background: var(--ink); }
+  .offer .mail { color: var(--ink); font-weight: 600; border-bottom: 2px solid var(--accent); transition: color 0.25s ease; }
+  .offer .mail:hover { color: var(--accent); }
+
+  footer { border-top: 1px solid var(--hair); padding: 2.2rem 2rem 3rem; text-align: center;
+           font-size: 0.88rem; color: var(--ink-soft); }
+  footer .fbrand { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: var(--ink); font-size: 1.05rem; }
+
+  .mobilebar { display: none; }
+  @media (max-width: 860px) {
+    .hero { padding: 2.2rem 0 5rem; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero h1 { width: 100%; font-size: clamp(2.6rem, 12vw, 4rem); }
+    .hero-media { margin-top: 2.6rem; }
+    .hero-media img.main { min-height: 20rem; }
+    .hero-media img.small { left: auto; right: -0.5rem; bottom: -2.6rem; width: 52%; }
+    .side-label { display: none; }
+    .stat-row { grid-template-columns: 1fr; gap: 0.6rem; }
+    section.block { padding: 4rem 0; }
+    .svc li, .svc li:nth-child(even) { grid-template-columns: 3.2rem 1fr; padding-left: 0; padding-right: 0; }
+    .svc .ds { grid-column: 2; justify-self: start; }
+    .contact-grid, .offer .grid { grid-template-columns: 1fr; }
+    body { padding-bottom: 4.4rem; }
+    .mobilebar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+                 background: var(--ink); box-shadow: 0 -6px 24px rgba(0,0,0,0.25); }
+    .mobilebar a { flex: 1; text-align: center; padding: 1rem 0.5rem; font-weight: 700;
+                   letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.86rem; color: var(--base); }
+    .mobilebar a.book { background: var(--accent); color: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<div class="previewbar">
+  <div class="wrap">
+    <p><strong>Free preview built for Lane Animal Hospital by Rankly Design</strong>: this site is not live yet.</p>
+    <a class="btn-book-sm" href="https://calendly.com/ranklydesign/30min">Book a call</a>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="rise" style="animation-delay:0.05s">
+      <div class="wordmark">Lane</div>
+      <div class="wordmark-sub">Chelsea, Michigan</div>
+    </div>
+    <div class="mast-tel rise" style="animation-delay:0.15s">
+      <div class="lbl">Call us</div>
+      <a href="tel:+17344758696">(734) 475-8696</a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="side-label">LANE</div>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="kicker rise" style="animation-delay:0.1s">Chelsea, Michigan &middot; Veterinarian</p>
+        <h1 class="rise" style="animation-delay:0.22s">Lane Animal Hospital,<br>in Chelsea.</h1>
+        <p class="sub rise" style="animation-delay:0.36s">Lane Animal Hospital is a veterinarian in Chelsea, Michigan, at 701 N. Main Street, Chelsea, MI 48118. Call (734) 475-8696 for current services, hours, and availability.</p>
+        <div class="hero-actions rise" style="animation-delay:0.5s">
+          <a class="btn-call" href="tel:+17344758696">Call (734) 475-8696</a>
+          <a class="btn-visit" href="#contact">Visit us</a>
+        </div>
+      </div>
+      <div class="hero-media rise" style="animation-delay:0.3s">
+        <div class="frame">
+          <img class="main" src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1600&q=80" alt="Lane Animal Hospital, Chelsea, Michigan" onerror="this.closest('.hero-media').classList.add('imgfail');this.remove();">
+        </div>
+        <img class="small" src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=900&q=80" alt="Lane Animal Hospital, Chelsea, Michigan" loading="lazy" onerror="this.remove();">
+      </div>
+    </div>
+
+    <div class="note-row rise" style="animation-delay:0.55s">
+      <p><strong></strong> </p>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Services</p>
+      <h2>What we <em>do</em></h2>
+    </div>
+    <p class="sec-lead">Lane Animal Hospital serves Chelsea and the surrounding area.</p>
+    <ul class="svc">
+      <li><span class="no">No. 1</span><span class="nm">Veterinarian</span><span class="ds"></span></li>
+      <li><span class="no">No. 2</span><span class="nm">Call to Book</span><span class="ds"></span></li>
+      <li><span class="no">No. 3</span><span class="nm">Chelsea, Michigan</span><span class="ds"></span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block contact" id="contact">
+  <div class="wrap">
+    <p class="kicker">Find Us</p>
+    <div class="contact-grid">
+      <div>
+        <h2 class="serif" style="font-weight:900;color:var(--ink);font-size:clamp(2.4rem,5vw,4rem);line-height:1.05;">Visit or <em style="font-weight:500;color:var(--accent);">call us</em></h2>
+        <p class="addr">Lane Animal Hospital<br>Chelsea,<br><span>Michigan</span></p>
+      </div>
+      <div class="side">
+        <p>We're here when you need us. Fastest way to reach us is by phone:</p>
+        <a class="btn-call" href="tel:+17344758696">Call (734) 475-8696</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="offer">
+  <div class="wrap">
+    <div class="offer-frame">
+      <span class="badge">50% off, short time only</span>
+      <h2>Like this site? <em>Make it yours.</em></h2>
+      <p class="intro">Rankly Design will put this preview live on your own web address and keep it running, so your Google searchers land on your business, not a directory page. Setup is <s>$100</s> <span class="now">$50</span> and maintenance is <s>$75/mo</s> <span class="now">$37.50/mo</span> with our launch offer: 50% off both, for a short time only.</p>
+      <div class="grid">
+        <div>
+          <p class="price"><span class="lbl">Setup</span><br><s>$100</s> &nbsp;<span class="now">$50</span> one time</p>
+          <p class="price"><span class="lbl">Maintenance</span><br><s>$75/mo</s> &nbsp;<span class="now">$37.50/mo</span></p>
+          <p class="fine">Launch offer: 50% off the signup and the monthly rate. No fake deadline, but the offer won't last forever.</p>
+        </div>
+        <div>
+          <ul>
+            <li>Your site on your own domain</li>
+            <li>Hosting, security &amp; upkeep handled</li>
+            <li>Updates done for you, up to 30 minutes a month</li>
+            <li>Google listing check, so customers keep finding you</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="btn-book" href="https://calendly.com/ranklydesign/30min">Book a call</a>
+        <a class="mail" href="mailto:ranklydesign@gmail.com">or email ranklydesign@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="fbrand">Lane Animal Hospital</span> · Chelsea, Michigan<br>
+  Free preview built by Rankly Design, not the business's live website.
+</footer>
+
+<div class="mobilebar">
+  <a class="book" href="https://calendly.com/ranklydesign/30min">Book a call</a>
+  <a href="mailto:ranklydesign@gmail.com">Email us</a>
+</div>
+
+<script data-goatcounter="https://ranklydesign.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
